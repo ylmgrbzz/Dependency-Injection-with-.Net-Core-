@@ -6,7 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<NumGenerator>(); // NumGenerator sýnýfýný servis olarak ekledik
 builder.Services.AddControllers(); // Controllers'ý ekledik
-builder.Services.AddScoped<INumGenerator, NumGenerator>(); // INumGenerator interface'ini servis olarak ekledik
+//builder.Services.AddScoped<INumGenerator, NumGenerator>(); // INumGenerator interface'ini servis olarak ekledik
+//builder.Services.AddTransient<INumGenerator, NumGenerator>(); // INumGenerator interface'ini servis olarak ekledik
+builder.Services.AddSingleton<INumGenerator, NumGenerator>(); // INumGenerator interface'ini servis olarak ekledik
 
 
 var app = builder.Build();
