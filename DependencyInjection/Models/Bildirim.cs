@@ -1,20 +1,42 @@
-﻿namespace DependencyInjection.Models
+﻿using System.Diagnostics;
+
+namespace DependencyInjection.Models
 {
     public class Bildirim
     {
-        public void Yap()
+        public void Yap(IBildirim bildirim)
         {
-            EPostaBildirim ePostaBildirim = new EPostaBildirim();
+            IBildirim bildirim = new EPostaBildirim();
             ePostaBildirim.Gonder();
 
         }
     }
 
-    public class EPostaBildirim
+
+    public interface IBildirim
+    {
+        void Gonder();
+    }
+
+
+    public class EPostaBildirim : IBildirim
     {
         public void Gonder()
         {
-            System.Console.WriteLine("Eposta gönderildi");
+            //Console.WriteLine("Eposta gönderildi");
+            Debug.WriteLine("Eposta gönderildi");
+            //return "ylm";
         }
     }
+
+
+    public class SmsBildirim : IBildirim
+    {
+        public void Gonder()
+        {
+            //Console.WriteLine("Sms gönderildi");
+            Debug.WriteLine("Sms gönderildi");
+        }
+    }
+
 }

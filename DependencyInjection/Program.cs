@@ -1,7 +1,12 @@
+using DependencyInjection.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddSingleton<Bildirim>(); // NumGenerator sýnýfýný servis olarak ekledik
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -21,5 +26,10 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers(); // Controllers'ý eþleþtirin
+});
 
 app.Run();
