@@ -13,6 +13,7 @@ namespace DependencyInjection.Models
         public static Bildirim CreateBildirimInstance()
         {
             return new Bildirim(new EPostaBildirim());
+
         }
 
     }
