@@ -7,11 +7,20 @@ namespace DependencyInjectionTutorial
     {
         static void Main(string[] args)
         {
-            XAmmo xAmmo = new XAmmo();
-            YAmmo yAmmo = new YAmmo();
+            //XAmmo xAmmo = new XAmmo();
+            //YAmmo yAmmo = new YAmmo();
 
-            xAmmo.Fire();
-            yAmmo.Fire();
+            //xAmmo.Fire();
+            //yAmmo.Fire();
+
+            Weapon weaponX = new Weapon(new XAmmo());
+            weaponX.Fire();
+
+            Weapon weaponY = new Weapon(new YAmmo());
+            weaponY.Fire();
+
+
+
         }
     }
 }
