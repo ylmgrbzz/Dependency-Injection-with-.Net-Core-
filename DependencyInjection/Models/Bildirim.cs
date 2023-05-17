@@ -2,13 +2,43 @@
 
 namespace DependencyInjection.Models
 {
+
+    public class Creator
+    {
+
+        private Creator()
+        {
+        }
+
+        public static Bildirim CreateBildirimInstance()
+        {
+            return new Bildirim(new EPostaBildirim());
+        }
+
+    }
+
     public class Bildirim
     {
-        public void Yap(IBildirim bildirim)
-        {
-            IBildirim bildirim = new EPostaBildirim();
-            ePostaBildirim.Gonder();
+        private IBildirim _bildirim;
 
+        public Bildirim(IBildirim bildirim)
+        {
+            _bildirim = bildirim;
+        }
+
+        public void Yap()
+        {
+            _bildirim.Gonder();
+
+            //Console.WriteLine("Bildirim gönderildi");
+            Debug.WriteLine("Bildirim gönderildi");
+        }
+        public void Yap2()
+        {
+            _bildirim.Gonder();
+
+            //Console.WriteLine("Bildirim gönderildi");
+            Debug.WriteLine("Bildirim2 gönderildi");
         }
     }
 

@@ -10,10 +10,16 @@ namespace DependencyInjection.Controllers
     {
         public void Get()
         {
-            Bildirim bildirim = new Bildirim();
-            bildirim.Yap(new EPostaBildirim());
-            bildirim.Yap(new SmsBildirim());
+            Bildirim bildirim = Creator.CreateBildirimInstance();
+            bildirim.Yap();
+            bildirim.Yap2();
+
+            //Bildirim bildirim2 = new(new SmsBildirim());
+            //bildirim2.Yap();
+            //bildirim2.Yap2();
+
         }
+
 
     }
 }
