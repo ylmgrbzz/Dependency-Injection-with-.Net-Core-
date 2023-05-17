@@ -17,7 +17,8 @@ namespace DependencyInject.Controllers
         [HttpGet]
         public string Get()
         {
-            return _numGenerator.GetNumber().ToString();
+            int number = _numGenerator.GetNumber();
+            return $"Number: {number}";
         }
     }
 }
